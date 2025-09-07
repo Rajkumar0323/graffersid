@@ -1,0 +1,18 @@
+# Create new Vite React project
+npm create vite@latest raj -- --template react
+
+# Navigate to project directory
+cd raj
+
+# Install base dependencies
+npm install
+
+# Install additional required packages
+npm install react-router-dom bootstrap bootstrap-icons
+
+# Add this to your src/main.jsx
+# import 'bootstrap/dist/css/bootstrap.min.css'
+# import 'bootstrap/dist/js/bootstrap.bundle.min'
+
+# Start the development server
+npm run dev
