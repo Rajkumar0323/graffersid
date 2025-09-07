@@ -100,14 +100,17 @@ function Home() {
       .padStart(2, "0")}-${d.getFullYear()}`;
   };
   return (
-    <div className="min-vh-100" style={{ backgroundColor: "#f8f9fa" }}>
+    <div
+      className="min-vh-100"
+      style={{ backgroundColor: "#rgb(255, 255, 255)" }}
+    >
       {/* Header */}
       <Navbar />
 
       {/* Main Content */}
       <div className="container-fluid py-4" style={{ maxWidth: "1064px" }}>
         {/* Search Section */}
-        <div className="d-flex justify-content-between align-items-end mb-4">
+        <div className="d-flex justify-content-between align-items-end mb-3">
           <div className="d-flex align-items-end w-100 flex-wrap justify-content-between">
             <div className="d-flex gap-2 me-4 align-items-end">
               <div>
@@ -152,7 +155,7 @@ function Home() {
             </div>
           </div>
         </div>
-
+        <div className="bg-light mb-5 mt-2" style={{ minHeight: "2px" }}></div>
         {/* Results */}
         <div className="mb-3">
           <span className="text-muted">
@@ -165,7 +168,7 @@ function Home() {
           {companiesList.length > 0 &&
             companiesList.map((company) => (
               <div key={company._id} className="col-12">
-                <div className="card border shadow-sm">
+                <div className="card border shadow-lg">
                   <div className="card-body p-4">
                     <div className="d-flex justify-content-between">
                       <div className="d-flex">
@@ -222,7 +225,7 @@ function Home() {
                       {/* Right Side Info */}
                       <div className="text-end">
                         <div
-                          className="small mb-3"
+                          className="small mb-5"
                           style={{ fontSize: "13px", color: "#767676" }}
                         >
                           {company.foundedOn

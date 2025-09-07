@@ -29,19 +29,17 @@ export async function addCompany(req, res) {
   }
 }
 
-// 2. Get Companies (listing + filters)
 export async function getCompanies(req, res) {
   try {
     const { filter = {} } = req.body;
     const { sort, search, city } = filter;
 
-    // Build query object
     const query = {};
     if (search) {
-      query.name = { $regex: `^${search}`, $options: "i" }; // Name starts with search term
+      query.name = { $regex: `^${search}`, $options: "i" };
     }
     if (city) {
-      query.city = { $regex: `^${city}`, $options: "i" }; // City starts with provided city
+      query.city = { $regex: `^${city}`, $options: "i" };
     }
 
     let companiesQuery = Company.find(query);

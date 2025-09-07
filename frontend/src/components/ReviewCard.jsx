@@ -4,9 +4,17 @@ import RenderStars from "./RenderStars";
 function ReviewCard({ name, date, rating, avatar, review }) {
   const formatDate = (isoDate) => {
     const d = new Date(isoDate);
-    return `${d.getDate().toString().padStart(2, "0")}-${(d.getMonth() + 1)
-      .toString()
-      .padStart(2, "0")}-${d.getFullYear()}`;
+
+    // Get date components
+    const day = d.getDate().toString().padStart(2, "0");
+    const month = (d.getMonth() + 1).toString().padStart(2, "0");
+    const year = d.getFullYear();
+
+    // Get time components
+    const hours = d.getHours().toString().padStart(2, "0");
+    const minutes = d.getMinutes().toString().padStart(2, "0");
+
+    return `${day}-${month}-${year}, ${hours}:${minutes}`;
   };
   return (
     <div className="card border-0 mb-3">
@@ -33,12 +41,15 @@ function ReviewCard({ name, date, rating, avatar, review }) {
             <div className="d-flex justify-content-between align-items-start mb-2">
               <div>
                 <h6
-                  className="fw-semibold text-dark"
+                  className="fw-semibold text-dark m-0"
                   style={{ fontSize: "18px" }}
                 >
                   {name}
                 </h6>
-                <small className="text-muted" style={{ fontSize: "13px" }}>
+                <small
+                  className="mt-2"
+                  style={{ fontSize: "13px", color: "#969696" }}
+                >
                   {formatDate(date)}
                 </small>
               </div>
