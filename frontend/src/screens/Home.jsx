@@ -147,7 +147,7 @@ function Home() {
                           </div>
                           <div className="d-flex align-items-center">
                             <span className="fs-5 fw-semibold me-2">
-                              {company?.averageRating}
+                              {Math.round(company?.averageRating * 2) / 2}
                             </span>
                             <div className="d-flex me-3">
                               <RenderStars rating={company?.averageRating} />

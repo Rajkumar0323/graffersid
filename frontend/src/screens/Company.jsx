@@ -76,15 +76,15 @@ export default function CompanyDetailPage() {
                     </div>
                     <div className="d-flex align-items-center">
                       <span className="fs-5 fw-semibold me-2">
-                        {company?.company?.averageRating}
+                        {Math.round(company?.company?.averageRating * 2) / 2}
                       </span>
                       <div className="d-flex me-3">
                         <RenderStars rating={company?.company?.averageRating} />
                       </div>
 
-                      <small className="text-muted">
+                      <span className="fs-5 fw-semibold me-2">
                         {company?.company?.reviewCount} Reviews
-                      </small>
+                      </span>
                     </div>
                   </div>
                 </div>
