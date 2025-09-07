@@ -8,5 +8,5 @@ MONGODB_URI=mongodb://localhost:27017/your-database-name
 # MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/your-database-name
 
 # API Configuration
-REACT_APP_API_BASE_URL=http://localhost:5000
+VITE_API_URL=http://localhost:5000
 
