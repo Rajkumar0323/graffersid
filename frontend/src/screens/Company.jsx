@@ -6,77 +6,11 @@ import AddReview from "../components/AddReview";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-// Mock data for the company and reviews
-const companyData = {
-  id: 4,
-  name: "Pixel Web and App Development",
-  address: "410, Bansi Trade Center, Indore (M.P.)",
-  rating: 2.5,
-  reviews: 0,
-  logo: "P",
-  bgColor: "bg-primary",
-  textColor: "text-white",
-  regDate: "01-01-2016",
-};
-
-const reviewsData = [
-  {
-    id: 1,
-    name: "Jorgue Watson",
-    date: "01-01-2022, 14:33",
-    rating: 4,
-    avatar: "https://picsum.photos/id/1/300/300",
-    review:
-      "Graffersid one of the best Company dolor sit amet, consectetur adipiscing elit. Congue netus feugiat elit suspendisse commodo. Pellentesque risus suspendisse mattis et massa. Ultrices ac at nibh et. Aliquam aliquam ultrices ac pulvinar eleifend duis. Eget congue fringilla quam ut mattis tortor posuere semper ac. Sem egestas vestibulum faucibus montes. Gravida sit non arcu consequat.",
-  },
-  {
-    id: 2,
-    name: "Jenny kole",
-    date: "12-01-2022, 15:00",
-    rating: 4,
-    avatar: "https://picsum.photos/id/2/300/300",
-    review:
-      "Graffersid one of the best Company dolor sit amet, consectetur adipiscing elit. Congue netus feugiat elit suspendisse commodo. Pellentesque risus suspendisse mattis et massa. Ultrices ac at nibh et.",
-  },
-  {
-    id: 3,
-    name: "Ayush Patel",
-    date: "12-01-2022, 15:00",
-    rating: 4,
-    avatar: "https://picsum.photos/id/3/300/300",
-    review: "Graffersid one of the best Company in App Development",
-  },
-  {
-    id: 4,
-    name: "Ayush Patel",
-    date: "12-01-2022, 15:00",
-    rating: 4,
-    avatar: "https://picsum.photos/id/3/300/300",
-    review: "Graffersid one of the best Company in App Development",
-  },
-  {
-    id: 6,
-    name: "Ayush Patel",
-    date: "12-01-2022, 15:00",
-    rating: 4,
-    avatar: "https://picsum.photos/id/3/300/300",
-    review: "Graffersid one of the best Company in App Development",
-  },
-  {
-    id: 5,
-    name: "Ayush Patel",
-    date: "12-01-2022, 15:00",
-    rating: 4,
-    avatar: "https://picsum.photos/id/3/300/300",
-    review: "Graffersid one of the best Company in App Development",
-  },
-];
-
 export default function CompanyDetailPage() {
   const [showAddReview, setShowAddReview] = useState(false);
   const { companyId } = useParams();
   const [company, setCompany] = useState();
-  //   const companyId = params.id;
+
   async function getCompanyDetails(id) {
     try {
       const response = await axios.get(
@@ -110,22 +44,13 @@ export default function CompanyDetailPage() {
         className="container-fluid py-4"
         style={{ maxWidth: "1064px", marginTop: "50px" }}
       >
-        {/* Company Header */}
         <div className="bg-white rounded-lg shadow-sm border p-6 mb-6 rounded-2">
           <div className="card border shadow-sm">
             <div className="card-body p-4 bg-white">
               <div className="d-flex flex-column flex-md-row justify-content-between">
                 <div className="d-flex">
-                  {/* Company Logo */}
                   <div
-                    //   className={`rounded d-flex align-items-center justify-content-center me-4 ${companies[0].bgColor} ${companies[0].textColor} fw-bold`}
                     className={`rounded d-flex align-items-center justify-content-center me-4 fw-bold`}
-                    //   style={{
-                    //     width: "80px",
-                    //     height: "80px",
-                    //     fontSize: "20px",
-                    //     flexShrink: 0,
-                    //   }}
                   >
                     <img
                       src={`${import.meta.env.VITE_API_URL}/api/companies/${
@@ -141,7 +66,6 @@ export default function CompanyDetailPage() {
                     />
                   </div>
 
-                  {/* companyData Info */}
                   <div className="flex-grow-1">
                     <h5 className="card-title fw-semibold mb-2">
                       {company?.company?.name}
@@ -165,7 +89,6 @@ export default function CompanyDetailPage() {
                   </div>
                 </div>
 
-                {/* Right Side Info */}
                 <div className="text-end">
                   <div className="small text-muted mb-3">
                     {company?.company?.foundedOn &&
@@ -180,7 +103,7 @@ export default function CompanyDetailPage() {
                 </div>
               </div>
             </div>
-            {/* Reviews Section */}
+
             <div
               className="space-y-6 mx-4"
               style={{ borderTop: "1px solid lightgray", paddingTop: "20px" }}

@@ -8,55 +8,6 @@ import RenderStars from "../components/RenderStars";
 import { Link, useLocation, useParams } from "react-router-dom";
 import AddCompany from "../components/AddCompany";
 
-const companies = [
-  {
-    id: 1,
-    name: "Graffersid Web and App Development",
-    address:
-      "916, Shekhar Central, Manorama Ganj, AB road, New Palasia, Indore (M.P.)",
-    rating: 4.5,
-    reviews: 41,
-    logo: "G",
-    bgColor: "bg-dark",
-    textColor: "text-white",
-    founded: "01-01-2016",
-  },
-  {
-    id: 2,
-    name: "Code Tech Company",
-    address: "414, Kanha Appartment, Bhawarkua, Indore (M.P.)",
-    rating: 4.5,
-    reviews: 0,
-    logo: "<CT>",
-    bgColor: "bg-success",
-    textColor: "text-white",
-    regDate: "01-01-2016",
-  },
-  {
-    id: 3,
-    name: "Innogent Pvt. Ltd.",
-    address:
-      "910, Shekhar Central, Manorama Ganj, AB road, New Palasia, Indore (M.P.)",
-    rating: 4.5,
-    reviews: 0,
-    logo: "☀",
-    bgColor: "bg-warning",
-    textColor: "text-white",
-    regDate: "01-01-2016",
-  },
-  {
-    id: 4,
-    name: "Pixel Web and App Development",
-    address: "410, Bansi Trade Center, Indore (M.P.)",
-    rating: 2.5,
-    reviews: 0,
-    logo: "P",
-    bgColor: "bg-primary",
-    textColor: "text-white",
-    regDate: "01-01-2016",
-  },
-];
-
 function Home() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -104,12 +55,9 @@ function Home() {
       className="min-vh-100"
       style={{ backgroundColor: "#rgb(255, 255, 255)" }}
     >
-      {/* Header */}
       <Navbar />
 
-      {/* Main Content */}
       <div className="container-fluid py-4" style={{ maxWidth: "1064px" }}>
-        {/* Search Section */}
         <div className="d-flex justify-content-between align-items-end mb-3">
           <div className="d-flex align-items-end w-100 flex-wrap justify-content-between">
             <div className="d-flex gap-2 me-4 align-items-end">
@@ -156,14 +104,13 @@ function Home() {
           </div>
         </div>
         <div className="bg-light mb-5 mt-2" style={{ minHeight: "2px" }}></div>
-        {/* Results */}
+
         <div className="mb-3">
           <span className="text-muted">
             Result Found: {companiesList.length}
           </span>
         </div>
 
-        {/* Company Listings */}
         <div className="row g-4">
           {companiesList.length > 0 &&
             companiesList.map((company) => (
@@ -172,16 +119,8 @@ function Home() {
                   <div className="card-body p-4">
                     <div className="d-flex justify-content-between">
                       <div className="d-flex">
-                        {/* Company Logo */}
                         <div
-                          //   className={`rounded d-flex align-items-center justify-content-center me-4 ${companies[0].bgColor} ${companies[0].textColor} fw-bold`}
                           className={`rounded d-flex align-items-center justify-content-center me-4 fw-bold`}
-                          //   style={{
-                          //     width: "80px",
-                          //     height: "80px",
-                          //     fontSize: "20px",
-                          //     flexShrink: 0,
-                          //   }}
                         >
                           <img
                             src={`http://localhost:5000/api/companies/${company?._id}/logo`}
@@ -195,7 +134,6 @@ function Home() {
                           />
                         </div>
 
-                        {/* Company Info */}
                         <div className="flex-grow-1">
                           <h5 className="card-title fw-semibold mb-1">
                             {company?.name}
@@ -222,7 +160,6 @@ function Home() {
                         </div>
                       </div>
 
-                      {/* Right Side Info */}
                       <div className="text-end">
                         <div
                           className="small mb-5"

@@ -65,7 +65,6 @@ const AddReview = ({ show, onClose, onSave, companyId }) => {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"
         style={{
@@ -76,7 +75,6 @@ const AddReview = ({ show, onClose, onSave, companyId }) => {
         onClick={onClose}
       ></div>
 
-      {/* Modal */}
       <div
         className="position-fixed top-50 start-50 translate-middle bg-white rounded-4 shadow-lg modal-content"
         style={{
@@ -89,7 +87,6 @@ const AddReview = ({ show, onClose, onSave, companyId }) => {
           transition: "opacity 0.25s ease-in-out, transform 0.25s ease-in-out",
         }}
       >
-        {/* Decorative circles */}
         <div
           className="position-absolute"
           style={{ top: 0, left: 0, zIndex: -1 }}
@@ -115,19 +112,15 @@ const AddReview = ({ show, onClose, onSave, companyId }) => {
           ></div>
         </div>
 
-        {/* Close button */}
         <button
           className="btn-close position-absolute top-0 end-0 m-3 fw-bold"
           onClick={onClose}
           style={{ zIndex: 10, fontSize: "12px" }}
         ></button>
 
-        {/* Content */}
         <div className="p-4 pt-5 mt-4" style={{ paddingTop: "3rem" }}>
-          {/* Title */}
           <h4 className="fw-bold text-center mb-4 text-dark">Add Review</h4>
 
-          {/* Form */}
           <div className="mb-3">
             <label className="form-label text-muted mb-2">Full Name</label>
             <input
@@ -177,7 +170,6 @@ const AddReview = ({ show, onClose, onSave, companyId }) => {
             />
           </div>
 
-          {/* Rating */}
           <div className="mb-4">
             <h5 className="fw-bold text-dark mb-1">Rating</h5>
             <div className="d-flex align-items-center justify-content-between gap-2">
@@ -214,7 +206,6 @@ const AddReview = ({ show, onClose, onSave, companyId }) => {
             </div>
           </div>
 
-          {/* Save Button */}
           {formError && <small className="text-danger">{formError}</small>}
           <div className="text-center">
             <button

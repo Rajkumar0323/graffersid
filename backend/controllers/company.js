@@ -1,7 +1,6 @@
 import Company from "../models/company.js";
 import Review from "../models/review.js";
 
-// 1. Add Company
 export async function addCompany(req, res) {
   try {
     const { companyName, location, foundedOn, city } = req.body;
@@ -44,21 +43,20 @@ export async function getCompanies(req, res) {
 
     let companiesQuery = Company.find(query);
 
-    // Handle sorting
     if (sort) {
       switch (sort.toLowerCase()) {
         case "name":
-          companiesQuery = companiesQuery.sort({ name: 1 }); // Ascending A→Z
+          companiesQuery = companiesQuery.sort({ name: 1 });
           break;
         case "location":
-          companiesQuery = companiesQuery.sort({ location: 1 }); // Ascending A→Z
+          companiesQuery = companiesQuery.sort({ location: 1 });
           break;
         case "rating":
         case "average":
-          companiesQuery = companiesQuery.sort({ averageRating: -1 }); // Descending (highest first)
+          companiesQuery = companiesQuery.sort({ averageRating: -1 });
           break;
         default:
-          companiesQuery = companiesQuery.sort({ name: 1 }); // Default fallback
+          companiesQuery = companiesQuery.sort({ name: 1 });
       }
     }
 
@@ -78,12 +76,11 @@ export async function getAllCompanies(req, res) {
   }
 }
 export async function getLogo(req, res) {
-  // console.log("function------>>>");
   try {
     const company = await Company.findById(req.params.id);
     if (company && company.logo && company.logo.data) {
       res.set("Content-Type", company.logo.contentType);
-      // console.log(company.logo.data);
+
       return res.send(company.logo.data);
     } else {
       res.status(404).send("Logo not found");
@@ -96,7 +93,6 @@ export async function getCompanyDetails(req, res) {
   try {
     const { companyId } = req.params;
 
-    // Fetch company details
     const company = await Company.findById(companyId);
     if (!company) {
       return res
@@ -104,7 +100,6 @@ export async function getCompanyDetails(req, res) {
         .json({ success: false, message: "Company not found" });
     }
 
-    // Fetch all reviews for that company
     const reviews = await Review.find({ companyId }).sort({ createdAt: -1 });
 
     res.json({

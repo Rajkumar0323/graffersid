@@ -1,16 +1,13 @@
 import RenderStars from "./RenderStars";
 
-// ReviewCard Component
 function ReviewCard({ name, date, rating, avatar, review }) {
   const formatDate = (isoDate) => {
     const d = new Date(isoDate);
 
-    // Get date components
     const day = d.getDate().toString().padStart(2, "0");
     const month = (d.getMonth() + 1).toString().padStart(2, "0");
     const year = d.getFullYear();
 
-    // Get time components
     const hours = d.getHours().toString().padStart(2, "0");
     const minutes = d.getMinutes().toString().padStart(2, "0");
 
@@ -20,14 +17,13 @@ function ReviewCard({ name, date, rating, avatar, review }) {
     <div className="card border-0 mb-3">
       <div className="card-body p-1 p-md-4">
         <div className="d-flex flex-column flex-md-row align-items-start">
-          {/* Avatar */}
           <div
             className="rounded-circle d-flex align-items-center justify-content-center me-4 fw-bold"
             style={{
               width: "40px",
               height: "40px",
               fontSize: "18px",
-              backgroundColor: "#6c757d", // Example color, you can vary dynamically
+              backgroundColor: "#6c757d",
               color: "white",
               flexShrink: 0,
             }}
@@ -35,9 +31,7 @@ function ReviewCard({ name, date, rating, avatar, review }) {
             {name?.[0]?.toUpperCase()}
           </div>
 
-          {/* Content */}
           <div className="flex-grow-1">
-            {/* Header with name, date, and stars */}
             <div className="d-flex justify-content-between align-items-start mb-2">
               <div>
                 <h6
@@ -58,7 +52,6 @@ function ReviewCard({ name, date, rating, avatar, review }) {
               </div>
             </div>
 
-            {/* Review Text */}
             <p
               className="mb-0"
               style={{ fontSize: "14px", lineHeight: "1", color: "#494949" }}

@@ -46,8 +46,7 @@ function AddCompany({ show, onClose, onSave }) {
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "logo") {
-      setFormData((prev) => ({ ...prev, logo: files[0] })); // Store File object
-    } else {
+      setFormData((prev) => ({ ...prev, logo: files[0] }));
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
@@ -79,7 +78,6 @@ function AddCompany({ show, onClose, onSave }) {
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"
         style={{
@@ -90,7 +88,6 @@ function AddCompany({ show, onClose, onSave }) {
         onClick={onClose}
       ></div>
 
-      {/* Modal */}
       <div
         className="position-fixed top-50 start-50 translate-middle bg-white rounded-4 shadow-lg modal-content"
         style={{
@@ -103,7 +100,6 @@ function AddCompany({ show, onClose, onSave }) {
           transition: "opacity 0.25s ease-in-out, transform 0.25s ease-in-out",
         }}
       >
-        {/* Decorative circles */}
         <div
           className="position-absolute"
           style={{ top: 0, left: 0, zIndex: -1 }}
@@ -129,19 +125,15 @@ function AddCompany({ show, onClose, onSave }) {
           ></div>
         </div>
 
-        {/* Close button */}
         <button
           className="btn-close position-absolute top-0 end-0 m-3 fw-bold"
           onClick={onClose}
           style={{ zIndex: 10, fontSize: "12px" }}
         ></button>
 
-        {/* Content */}
         <div className="p-4 pt-5 mt-4" style={{ paddingTop: "3rem" }}>
-          {/* Title */}
           <h4 className="fw-bold text-center mb-4 text-dark">Add Company</h4>
 
-          {/* Form */}
           <div className="mb-2">
             <label className="form-label text-muted mb-2">Company name</label>
             <input
@@ -165,7 +157,6 @@ function AddCompany({ show, onClose, onSave }) {
               placeholder="Enter..."
               name="logo"
               accept="image/*"
-              //   value={formData.logo}
               onChange={handleChange}
               style={{
                 border: "1px solid #CDCDCD",
@@ -228,7 +219,6 @@ function AddCompany({ show, onClose, onSave }) {
             />
           </div>
 
-          {/* Save Button */}
           {formError && <small className="text-danger">{formError}</small>}
           <div className="text-center">
             <button
